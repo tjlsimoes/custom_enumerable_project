@@ -30,4 +30,20 @@ def my_each_with_index
 
   self
 end
+
+def my_select(&condition)
+  truth_values = []
+
+  i = 0
+  while i < self.length
+    if condition.call(self[i])
+      truth_values << self[i]
+    end
+
+    i += 1
+  end
+
+  truth_values
+end
+
 end
