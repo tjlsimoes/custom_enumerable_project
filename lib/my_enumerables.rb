@@ -74,4 +74,21 @@ def my_all?(&condition)
 
 end
 
+
+def my_any?(&condition)
+
+  truth_values = []
+
+  i = 0
+  while i < self.length
+    if condition.call(self[i])
+      truth_values << self[i]
+    end
+
+    i += 1
+  end
+
+  truth_values.length >= 1
+end
+
 end
