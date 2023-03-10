@@ -46,4 +46,32 @@ def my_select(&condition)
   truth_values
 end
 
+def my_all?(&condition)
+
+    truth_values = []
+
+    i = 0
+    while i < self.length
+      if condition.call(self[i])
+        truth_values << self[i]
+      end
+
+      i += 1
+    end
+
+    truth_values.length == self.length
+  
+
+  # Does not consider:
+  #   - With no block given and no argument, returns true if 
+  #      self contains only truthy elements, false otherwise.
+  #   - With a block given and no argument, calls the block with 
+  #      each element in self; returns true if the block returns 
+  #      only truthy values, false otherwise.
+  #   - If argument obj is given, returns true if obj.=== every element, 
+  #      false otherwise.
+
+
+end
+
 end
