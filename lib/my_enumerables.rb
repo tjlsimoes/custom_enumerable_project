@@ -129,4 +129,18 @@ def my_count(&condition)
   end
 end
 
+def my_map(&condition)
+  new_array = []
+
+  i = 0
+  while i < self.length
+
+      new_array << condition.call(self[i])
+
+      i += 1
+  end
+
+  new_array
+end
+
 end
