@@ -143,4 +143,31 @@ def my_map(&condition)
   new_array
 end
 
+def my_inject(initial_value, &condition)
+
+  if initial_value
+  
+    desired_value = initial_value
+    i = 0
+    while i < self.length
+
+        desired_value = condition.call(desired_value, self[i])
+        i += 1
+    end
+
+    desired_value
+  else
+
+    i = 1
+    while i < self.length
+
+        desired_value = condition.call(self[i - 1], self[i])
+        i += 1
+    end
+
+    desired_value
+  end
+
+end
+
 end
