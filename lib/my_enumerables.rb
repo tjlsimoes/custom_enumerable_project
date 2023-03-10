@@ -107,4 +107,26 @@ def my_none?(&condition)
   truth_values.length == 0
 end
 
+def my_count(&condition)
+
+  if block_given?
+
+    truth_values = []
+
+    i = 0
+    while i < self.length
+      if condition.call(self[i])
+        truth_values << self[i]
+      end
+
+      i += 1
+    end
+
+    truth_values.length
+
+  else
+    self.length
+  end
+end
+
 end
